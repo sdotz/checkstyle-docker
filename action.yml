@@ -11,7 +11,7 @@ inputs:
     required: false
     default: '/'
 outputs:
-  time: # id of output
+  results: # id of output
     description: 'The output of the linter'
 runs:
   using: 'docker'
