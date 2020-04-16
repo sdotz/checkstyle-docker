@@ -6,7 +6,7 @@ inputs:
     description: "Path to style rules xml file"
     required: false
     default: 'style.xml'
-  code-path: "Path to code for which style will be checked"
+  code-path: # "Path to code for which style will be checked"
     description: "Path to code for which style will be checked"
     required: false
     default: '/'
