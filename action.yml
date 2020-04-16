@@ -1,0 +1,22 @@
+# action.yml
+name: 'Checkstyle Action'
+description: 'Runs checkstyle on code and reports any style violations'
+inputs:
+  style-rules-xml: #path to the xml file defining style rules
+    description: "Path to style rules xml file"
+    required: false
+    default: 'style.xml'
+  code-path: "Path to code for which style will be checked"
+    description: "Path to code for which style will be checked"
+    required: false
+    default: '/'
+outputs:
+  time: # id of output
+    description: 'The output of the linter'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '-c'
+    - ${{ inputs.style-rules-xml }}
+    - ${{ inputs.code-path }}
