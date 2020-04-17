@@ -17,6 +17,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - '-c'
-    - ${{ inputs.style-rules-xml }}
-    - ${{ inputs.code-path }}
+    - "-c ${{ inputs.style-rules-xml }} ${{ inputs.code-path }}"
