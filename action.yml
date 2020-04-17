@@ -5,11 +5,11 @@ inputs:
   style-rules-xml: #path to the xml file defining style rules
     description: "Path to style rules xml file"
     required: false
-    default: 'style.xml'
+    default: './style.xml'
   code-path: # "Path to code for which style will be checked"
     description: "Path to code for which style will be checked"
     required: false
-    default: ''
+    default: './'
 outputs:
   results: # id of output
     description: 'The output of the linter'
@@ -18,5 +18,5 @@ runs:
   image: 'Dockerfile'
   args:
     - '-c'
-    - /github/workspace/${{ inputs.style-rules-xml }}
-    - /github/workspace/${{ inputs.code-path }}
+    - ${{ inputs.style-rules-xml }}
+    - ${{ inputs.code-path }}
