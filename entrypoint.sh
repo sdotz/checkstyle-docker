@@ -2,15 +2,22 @@
 
 results=$(java -jar /checkstyle.jar $* | awk NF | grep WARN)
 
-if [ -n "$GITHUB_ACTIONS" ]; then
-  echo "::set-output name=results::$results"
+
+if [ -n $results ]; then
+  message="code style looks good"
+  if [ -n "$GITHUB_ACTIONS" ]; then
+    echo "::set-output name=results::$message"
+  else
+    echo $message
+  fi
+  exit 0
 else
-  if [ -n $results ]; then
-    echo "code style looks good"
-    exit 0
+  message=$results
+  if [ -n "$GITHUB_ACTIONS" ]; then
+    echo "::set-output name=results::$message"
   else
     echo $results
-    exit 1
   fi
+  exit 1
 fi
 
