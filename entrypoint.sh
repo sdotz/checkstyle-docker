@@ -3,7 +3,7 @@
 results=$(java -jar /checkstyle.jar $* | awk NF | grep WARN)
 
 
-if [ -n $results ]; then
+if [ -n "$results" ]; then
   message="code style looks good"
   if [ -n "$GITHUB_ACTIONS" ]; then
     echo "::set-output name=results::$message"
