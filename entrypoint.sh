@@ -12,5 +12,5 @@ fi
 if [ -n "$GITHUB_ACTIONS" ]; then
   echo "::set-output name=results::$message"
 else
-  echo $message
+  echo "$message"
 fi
